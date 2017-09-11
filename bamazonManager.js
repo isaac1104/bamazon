@@ -26,7 +26,7 @@ function showLowInventory() {
       return console.log(err);
     }
     res.filter(function(item) {
-      return item.stock_quantity < 500;
+      return item.stock_quantity < 300;
     }).forEach(function(items) {
       console.log("Product ID: " + items.item_id + " | " + "Item: " + items.product_name + " | " + "$" + items.price + " | " + "Quantity In-Stock: " + items.stock_quantity);
     });
@@ -69,6 +69,47 @@ function addToInventory() {
   });
 }
 
+function addNewProduct() {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "product",
+      message: "What Is The Name Of The Product You Would Like To Add?"
+    },
+    {
+      type: "input",
+      name: "department",
+      message: "Assign The Department For This Product"
+    },
+    {
+      type: "input",
+      name: "price",
+      message: "Please Set The Price For This Product"
+    },
+    {
+      type: "input",
+      name: "quantity",
+      message: "Please Set The Initial Quantity For This Product"
+    }
+  ]).then(function(response) {
+    var product = response.product;
+    var department = response.department;
+    var price = Number(response.price);
+    var quantity = Number(response.quantity);
+    var add = "INSERT INTO products(product_name, department_name, price, stock_quantity) VALUES ?";
+    var value = [
+      [product, department, price, quantity]
+    ];
+
+    connection.query(add, [value], function(err, res) {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("You have successfully added: " + quantity + " " + product + "(s) " + "to " + department + " department" + "for $" + price);
+    });
+  });
+}
+
 connection.connect(function(err) {
   if (err) {
     return console.log(err);
@@ -87,6 +128,8 @@ connection.connect(function(err) {
       showLowInventory();
     } else if (response.list === "Add to Inventory") {
       addToInventory();
+    } else if (response.list === "Add New Product") {
+      addNewProduct();
     }
   });
 });
