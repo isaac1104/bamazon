@@ -11,7 +11,7 @@ Bamazon is an Amazon-like storefront CLI app, created with the using the MySQL s
 
 Running this application as a customer will first display all of the items available for sale.
 
-![customer_1](https://github.com/isaac1104/bamazon/images/customer_1.png)
+![Alt text](/images/customer_1.png?raw=true "Optional Title")
 
 The app will then ask the users the ID and the quantity of the product that they would like to purchase.
 
