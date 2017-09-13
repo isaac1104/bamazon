@@ -11,32 +11,32 @@ Bamazon is an Amazon-like storefront CLI app, created with the using the MySQL s
 
 Running this application as a customer will first display all of the items available for sale.
 
-![customer_1](https://github.com/isaac1104/images/customer_1.png)
+![customer_1](https://github.com/isaac1104/bamazon/images/customer_1.png)
 
 The app will then ask the users the ID and the quantity of the product that they would like to purchase.
 
-![customer_2](https://github.com/isaac1104/images/customer_2.png)
+![customer_2](https://github.com/isaac1104/bamazon/images/customer_2.png)
 
 Once the customer has placed the order, the application will check if the store has enough of the product to meet the customer's request.
 
-![customer_3](https://github.com/isaac1104/images/customer_3.png)
+![customer_3](https://github.com/isaac1104/bamazon/images/customer_3.png)
 
 If not, the app will log a phrase like "Insufficient quantity!", and then prevent the order from going through.
 
-![customer_4](https://github.com/isaac1104/images/customer_4.png)
+![customer_4](https://github.com/isaac1104/bamazon/images/customer_4.png)
 
 Also, if the product is completely out of stock, it will notify the customer with a phrase like "Out of stock!".
 
-![customer_5](https://github.com/isaac1104/images/customer_5.png)
+![customer_5](https://github.com/isaac1104/bamazon/images/customer_5.png)
 
 However, if the store does have enough of the product, it will fulfill the customer's order. 
 
-![customer_6](https://github.com/isaac1104/images/customer_6.png)
+![customer_6](https://github.com/isaac1104/bamazon/images/customer_6.png)
 
 Once the update goes through, the app shows the customers the total cost of their purchase and ask if they would like to proceed.
 
-![customer_7](https://github.com/isaac1104/images/customer_7.png)
+![customer_7](https://github.com/isaac1104/bamazon/images/customer_7.png)
 
 When the products get purchased, the quantity and the product sales are reflected in the database.
 
-![customer_8](https://github.com/isaac1104/images/customer_8.png)
+![customer_8](https://github.com/isaac1104/bamazon/images/customer_8.png)
