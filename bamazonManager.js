@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table");
 var connection = mysql.createConnection({
   host: "localhost",
   port: 8889,
@@ -14,9 +15,20 @@ function showProducts() {
       return console.log(err);
     }
     console.log("List of All Products Available for Sale");
-    res.forEach(function(item) {
-      console.log("Product ID: " + item.item_id + " | " + "Item: " + item.product_name + " | " + "$" + item.price + " | " + "Quantity In-Stock: " + item.stock_quantity);
+    var table = new Table({
+      head: ["Item ID", "Product Name", "Price", "Quantity In-Stock"],
+      style: {
+        head: ['blue'],
+        compact: false,
+        colAligns: ['center'],
+      }
     });
+    res.forEach(function(item) {
+      table.push([
+        item.item_id, item.product_name, item.price, item.stock_quantity
+      ]);
+    });
+    console.log(table.toString());
   });
 }
 
@@ -25,11 +37,22 @@ function showLowInventory() {
     if (err) {
       return console.log(err);
     }
+    var table = new Table({
+      head: ["Item ID", "Product Name", "Price", "Quantity In-Stock"],
+      style: {
+        head: ['blue'],
+        compact: false,
+        colAligns: ['center'],
+      }
+    });
     res.filter(function(item) {
       return item.stock_quantity <= 5;
     }).forEach(function(items) {
-      console.log("Product ID: " + items.item_id + " | " + "Item: " + items.product_name + " | " + "$" + items.price + " | " + "Quantity In-Stock: " + items.stock_quantity);
+      table.push([
+        items.item_id, items.product_name, items.price, items.stock_quantity
+      ]);
     });
+    console.log(table.toString());
   });
 }
 
@@ -38,9 +61,20 @@ function addToInventory() {
     if (err) {
       return console.log(err);
     }
+    var table = new Table({
+      head: ["Item ID", "Product Name", "Price", "Quantity In-Stock"],
+      style: {
+        head: ['blue'],
+        compact: false,
+        colAligns: ['center'],
+      }
+    });
     for (var i = 0; i < res.length; i++) {
-      console.log("Product ID: " + res[i].item_id + " | " + "Item: " + res[i].product_name + " | " + "$" + res[i].price + " | " + "Quantity In-Stock: " + res[i].stock_quantity);
+      table.push([
+        res[i].item_id, res[i].product_name, res[i].price, res[i].stock_quantity
+      ]);
     }
+    console.log(table.toString());
     inquirer.prompt([{
         type: "input",
         name: "product_id",

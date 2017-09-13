@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table");
 var connection = mysql.createConnection({
   host: "localhost",
   port: 8889,
@@ -18,9 +19,21 @@ function viewProductSales() {
       if (err) {
         return console.log(err);
       }
-      res.forEach(function(item) {
-        console.log("Department ID: " + item.department_id + " | " + "Department Name: " + item.department_name + " | " + "Overhead Costs: " + item.over_head_costs + " | " + "Product Sales: " + item.product_sales + " | " + " Profit: " + Number(item.product_sales - item.over_head_costs));
+      console.log("List Of Departments");
+      var table = new Table({
+        head: ["Department ID", "Department Name", "Overhead Costs", "Product Sales", "Profit"],
+        style: {
+          head: ['blue'],
+          compact: false,
+          colAligns: ['center'],
+        }
       });
+      res.forEach(function(item) {
+        table.push([
+          item.department_id, item.department_name, item.over_head_costs, item.product_sales, Number(item.product_sales - item.over_head_costs)
+        ]);
+      });
+      console.log(table.toString());
     });
   });
 }
