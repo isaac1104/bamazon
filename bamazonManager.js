@@ -14,9 +14,9 @@ function showProducts() {
       return console.log(err);
     }
     console.log("List of All Products Available for Sale");
-    for (var i = 0; i < res.length; i++) {
-      console.log("Product ID: " + res[i].item_id + " | " + "Item: " + res[i].product_name + " | " + "$" + res[i].price + " | " + "Quantity In-Stock: " + res[i].stock_quantity);
-    }
+    res.forEach(function(item) {
+      console.log("Product ID: " + item.item_id + " | " + "Item: " + item.product_name + " | " + "$" + item.price + " | " + "Quantity In-Stock: " + item.stock_quantity);
+    });
   });
 }
 
@@ -26,7 +26,7 @@ function showLowInventory() {
       return console.log(err);
     }
     res.filter(function(item) {
-      return item.stock_quantity < 300;
+      return item.stock_quantity <= 5;
     }).forEach(function(items) {
       console.log("Product ID: " + items.item_id + " | " + "Item: " + items.product_name + " | " + "$" + items.price + " | " + "Quantity In-Stock: " + items.stock_quantity);
     });
@@ -41,8 +41,7 @@ function addToInventory() {
     for (var i = 0; i < res.length; i++) {
       console.log("Product ID: " + res[i].item_id + " | " + "Item: " + res[i].product_name + " | " + "$" + res[i].price + " | " + "Quantity In-Stock: " + res[i].stock_quantity);
     }
-    inquirer.prompt([
-      {
+    inquirer.prompt([{
         type: "input",
         name: "product_id",
         message: "Please Input the ID of the Product That You Would Like To Re-Stock"
@@ -63,15 +62,14 @@ function addToInventory() {
         if (err) {
           return console.log(err);
         }
-          console.log("You have successfully restocked " + quantity + " " + productName + "(s)");
+        console.log("You have successfully restocked " + quantity + " " + productName + "(s)");
       });
     });
   });
 }
 
 function addNewProduct() {
-  inquirer.prompt([
-    {
+  inquirer.prompt([{
       type: "input",
       name: "product",
       message: "What Is The Name Of The Product You Would Like To Add?"
@@ -114,14 +112,12 @@ connection.connect(function(err) {
   if (err) {
     return console.log(err);
   }
-  inquirer.prompt([
-    {
-      type: "list",
-      name: "list",
-      message: "List of Available Options",
-      choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product"]
-    }
-  ]).then(function(response) {
+  inquirer.prompt([{
+    type: "list",
+    name: "list",
+    message: "List of Available Options",
+    choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product"]
+  }]).then(function(response) {
     if (response.list === "View Products for Sale") {
       showProducts();
     } else if (response.list === "View Low Inventory") {

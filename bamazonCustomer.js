@@ -41,6 +41,9 @@ connection.connect(function(err) {
       var price = Number(res[Number(response.product_id - 1)].price);
       var inventory = stockQuantity - quantity;
       var productName = res[Number(response.product_id - 1)].product_name;
+      var total_sales = Number(res[Number(response.product_id - 1)].product_sales);
+      var product_sales = (quantity * price) + total_sales;
+      
 //Prevent from purchasing the item if the customer wants more than what's in the inventory
       if (quantity > stockQuantity && stockQuantity !== 0) {
         return console.log("Insufficient quantity! Please choose different quantity for this item.");
@@ -57,7 +60,7 @@ connection.connect(function(err) {
           }
         ]).then(function(response) {
           if (response.confirm === true) {
-            var update = "UPDATE products SET stock_quantity = " + inventory + " WHERE item_id = " + id;
+            var update = "UPDATE products SET stock_quantity = " + inventory + ", product_sales = " + product_sales + " WHERE item_id = " + id;
             connection.query(update, function(err, res) {
               if (err) {
                 return console.log(err);
