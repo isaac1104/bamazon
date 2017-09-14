@@ -59,3 +59,18 @@ c. If a manager selects Add to Inventory, the app will display a prompt that wil
 d. If a manager selects Add New Product, it will allow the manager to add a completely new product to the store. (Also notice that the fidget spinners have been restocked from "c.")
 
 ![Alt text](/images/manager_4.png?raw=true "Optional Title")
+
+#### 3. Supervisor View
+
+Running this application will list a set of menu options:
+
+* View Product Sales by Department
+* Create New Department
+
+a. When a supervisor selects View Product Sales by Department, the app will display a summarized table in the terminal/bash window. 
+
+![Alt text](/images/supervisor_1.png?raw=true "Optional Title")
+
+b. When a supervisor selects Create New Department, the app will take responses from the user and create a new department into the database.
+
+![Alt text](/images/supervisor_2.png?raw=true "Optional Title")
