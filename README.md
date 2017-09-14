@@ -46,8 +46,16 @@ Running this application with manager view will list a set of menu options:
 
 a. If a manager selects View Products for Sale, the app will list every available item: the item IDs, names, prices, and quantities.
 
+![Alt text](/images/manager_1.png?raw=true "Optional Title")
+
 b. If a manager selects View Low Inventory, then it will list all items with an inventory count lower than five.
+
+![Alt text](/images/manager_2.png?raw=true "Optional Title")
 
 c. If a manager selects Add to Inventory, the app will display a prompt that will let the manager "add more" of any item currently in the store.
 
-d. If a manager selects Add New Product, it will allow the manager to add a completely new product to the store.
+![Alt text](/images/manager_3.png?raw=true "Optional Title")
+
+d. If a manager selects Add New Product, it will allow the manager to add a completely new product to the store. (Also notice that the fidget spinners have been restocked from "c.")
+
+![Alt text](/images/manager_4.png?raw=true "Optional Title")
