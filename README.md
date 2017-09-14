@@ -44,11 +44,10 @@ Running this application with manager view will list a set of menu options:
 * Add to Inventory
 * Add New Product
 
-a. If a manager selects View Products for Sale, the app should list every available item: the item IDs, names, prices, and quantities.
+a. If a manager selects View Products for Sale, the app will list every available item: the item IDs, names, prices, and quantities.
 
+b. If a manager selects View Low Inventory, then it will list all items with an inventory count lower than five.
 
-b. If a manager selects View Low Inventory, then it should list all items with an inventory count lower than five.
+c. If a manager selects Add to Inventory, the app will display a prompt that will let the manager "add more" of any item currently in the store.
 
-c. If a manager selects Add to Inventory, your app should display a prompt that will let the manager "add more" of any item currently in the store.
-
-d. If a manager selects Add New Product, it should allow the manager to add a completely new product to the store.
+d. If a manager selects Add New Product, it will allow the manager to add a completely new product to the store.
