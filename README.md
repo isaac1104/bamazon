@@ -7,36 +7,47 @@ Bamazon is an Amazon-like storefront CLI app, created with the using the MySQL s
 * Manager view
 * Supervisor view
 
-#### 1. Customer view
+#### 1. Customer View
 
-Running this application as a customer will first display all of the items available for sale.
+a. Running this application as a customer will first display all of the items available for sale.
 
 ![Alt text](/images/customer_1.png?raw=true "Optional Title")
 
-The app will then ask the users the ID and the quantity of the product that they would like to purchase.
+b. The app will then ask the users the ID and the quantity of the product that they would like to purchase.
 
-![customer_2](https://github.com/isaac1104/bamazon/images/customer_2.png)
+c. Once the customer has placed the order, the application will check if the store has enough of the product to meet the customer's request.
 
-Once the customer has placed the order, the application will check if the store has enough of the product to meet the customer's request.
+![Alt text](/images/customer_2.png?raw=true "Optional Title")
 
-![customer_3](https://github.com/isaac1104/bamazon/images/customer_3.png)
+d. If not, the app will log a phrase like "Insufficient quantity!", and then prevent the order from going through.
 
-If not, the app will log a phrase like "Insufficient quantity!", and then prevent the order from going through.
+![Alt text](/images/customer_3.png?raw=true "Optional Title")
 
-![customer_4](https://github.com/isaac1104/bamazon/images/customer_4.png)
+e. Also, if the product is completely out of stock, it will notify the customer with a phrase like "Out of stock!".
 
-Also, if the product is completely out of stock, it will notify the customer with a phrase like "Out of stock!".
+![Alt text](/images/customer_4.png?raw=true "Optional Title")
 
-![customer_5](https://github.com/isaac1104/bamazon/images/customer_5.png)
+f. However, if the store does have enough of the product, it will fulfill the customer's order. 
 
-However, if the store does have enough of the product, it will fulfill the customer's order. 
+![Alt text](/images/customer_5.png?raw=true "Optional Title")
 
-![customer_6](https://github.com/isaac1104/bamazon/images/customer_6.png)
+g. Once the update goes through, the app shows the customers the total cost of their purchase and ask if they would like to proceed.
 
-Once the update goes through, the app shows the customers the total cost of their purchase and ask if they would like to proceed.
+h. When the products get purchased, the quantity and the product sales are reflected in the database.
 
-![customer_7](https://github.com/isaac1104/bamazon/images/customer_7.png)
+#### 2. Manager View
 
-When the products get purchased, the quantity and the product sales are reflected in the database.
+Running this application with manager view will list a set of menu options:
 
-![customer_8](https://github.com/isaac1104/bamazon/images/customer_8.png)
+* View Products for Sale
+* View Low Inventory
+* Add to Inventory
+* Add New Product
+
+a. If a manager selects View Products for Sale, the app will list every available item: the item IDs, names, prices, and quantities.
+
+b. If a manager selects View Low Inventory, then it will list all items with an inventory count lower than five.
+
+c. If a manager selects Add to Inventory, the app will display a prompt that will let the manager "add more" of any item currently in the store.
+
+d. If a manager selects Add New Product, it will allow the manager to add a completely new product to the store.
